@@ -54,6 +54,7 @@
         }
         .image-smooth {
             transition: transform 0.4s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
         .image-smooth:hover {
             transform: scale(1.01);
@@ -158,11 +159,10 @@
                         <br>
 
                         <img 
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ukraine_in_Europe_%28zoomed%29.svg/800px-Ukraine_in_Europe_%28zoomed%29.svg.png" 
+                            src="https://erudyt.net/wp-content/uploads/2017/08/ukraine-evropaa.png" 
                             style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" 
                             loading="lazy"
                             class="image-smooth"
-                            referrerpolicy="no-referrer"
                             alt="Мапа України в Європі"
                         >
                         
@@ -203,7 +203,7 @@
 
                         <br>
 
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ukraine_relief_location_map.png/800px-Ukraine_relief_location_map.png"
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Ukraine_topo_en.jpg/960px-Ukraine_topo_en.jpg"
                              style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
                              class="image-smooth"
                              loading="lazy">
@@ -222,10 +222,77 @@
                 intro: 'У цьому розділі візуалізовано територіальний поділ держави. Структура сайту передбачає окремі сторінки для різних типів адміністративних одиниць. Інтерактивний графік праворуч демонструє кількісне співвідношення цих складових.',
                 hasChart: true,
                 items: [
-                    { name: '24 області', desc: 'Основні адміністративно-територіальні одиниці, що складають більшість території країни.' },
-                    { name: 'Автономна республіка Крим', desc: 'Територіальна автономія у складі держави.' },
-                    { name: 'м. Київ', desc: 'Столиця України, що має спеціальний статус.' },
-                    { name: 'м. Севастополь', desc: 'Місто зі спеціальним статусом.' }
+                    { 
+                        name: '24 області', 
+                        desc: `
+                            <div style="line-height:1.8;">
+                                <b>🏛️ Адміністративні області України:</b><br>
+                                Україна поділяється на 24 області, кожна з яких має свій обласний центр. Області є основними адміністративно-територіальними одиницями держави. Вони забезпечують реалізацію державної політики на місцях та мають власні органи виконавчої влади та місцевого самоврядування.<br><br>
+                                <b>📌 Приклади областей:</b><br>
+                                • Львівська область (центр - м. Львів)<br>
+                                • Харківська область (центр - м. Харків)<br>
+                                • Одеська область (центр - м. Одеса)<br>
+                                • Дніпропетровська область (центр - м. Дніпро)<br>
+                                • Луганська область (центр - м. Луганськ / Сєвєродонецьк)<br>
+                                • Донецька область (центр - м. Донецьк / Краматорськ)<br>
+                                <br>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Ukraine_administrative_regions_%282022%29.svg/800px-Ukraine_administrative_regions_%282022%29.svg.png" 
+                                     style="width:100%; border-radius:12px; margin-top:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
+                                     class="image-smooth"
+                                     loading="lazy"
+                                     alt="Мапа областей України">
+                            </div>
+                        `
+                    },
+                    { 
+                        name: 'Автономна республіка Крим', 
+                        desc: `
+                            <div style="line-height:1.8;">
+                                <b>🏝️ Автономна Республіка Крим:</b><br>
+                                АР Крим є невід'ємною частиною України, яка має особливий статус автономії. Відповідно до Конституції України, АР Крим має власну Конституцію та представницькі органи влади — Верховну Раду Автономної Республіки Крим та Раду міністрів АР Крим.<br><br>
+                                <b>🏙️ Столиця:</b> м. Сімферополь.<br>
+                                <b>🌊 Географічне положення:</b> Розташована на Кримському півострові, омивається Чорним та Азовським морями. Територія має унікальні природні ландшафти, включаючи Кримські гори та степові зони.<br><br>
+                                <b>🏛️ Особливості статусу:</b> Автономія наділена широкими повноваженнями у сферах курортного господарства, сільського господарства, будівництва та місцевого самоврядування.
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Crimea_%28orthographic_projection%29.png/800px-Crimea_%28orthographic_projection%29.png" 
+                                     style="width:100%; border-radius:12px; margin-top:16px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
+                                     class="image-smooth"
+                                     loading="lazy"
+                                     alt="Мапа Автономної республіки Крим">
+                            </div>
+                        `
+                    },
+                    { 
+                        name: 'м. Київ', 
+                        desc: `
+                            <div style="line-height:1.8;">
+                                <b>🏙️ Столиця України — місто Київ:</b><br>
+                                Київ — столиця та найбільше місто України, яке має спеціальний статус, визначений Конституцією України. Місто є окремою адміністративно-територіальною одиницею та не входить до складу жодної області.<br><br>
+                                <b>📌 Статус:</b> Місто зі спеціальним статусом. Функції місцевого самоврядування здійснює Київська міська рада (Київрада) та Київська міська державна адміністрація (КМДА).<br>
+                                <b>🌉 Основні факти:</b> Київ є політичним, економічним, науковим, культурним та історичним центром країни. Населення перевищує 2.8 мільйона мешканців. Місто розташоване на берегах річки Дніпро.<br><br>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Kyiv_Montage_2019.jpg/800px-Kyiv_Montage_2019.jpg" 
+                                     style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
+                                     class="image-smooth"
+                                     loading="lazy"
+                                     alt="Київ — столиця України">
+                            </div>
+                        `
+                    },
+                    { 
+                        name: 'м. Севастополь', 
+                        desc: `
+                            <div style="line-height:1.8;">
+                                <b>⚓ Місто Севастополь:</b><br>
+                                Севастополь є містом зі спеціальним статусом, яке розташоване в межах Кримського півострова. Відповідно до законодавства України, місто має особливий статус, пов'язаний з історичними, економічними та оборонними функціями.<br><br>
+                                <b>🏛️ Статус:</b> Місто зі спеціальним статусом, яке має власні органи місцевого самоврядування та виконавчої влади — Севастопольську міську раду та Севастопольську міську державну адміністрацію.<br>
+                                <b>🌊 Географія:</b> Розташоване на південно-західному узбережжі Кримського півострова на березі Чорного моря. Севастополь є важливим морським портом та історичним центром.<br><br>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sebastopol_Bucht_2010.JPG/800px-Sebastopol_Bucht_2010.JPG" 
+                                     style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
+                                     class="image-smooth"
+                                     loading="lazy"
+                                     alt="Севастополь">
+                            </div>
+                        `
+                    }
                 ]
             },
             symbols: {
@@ -259,11 +326,11 @@
                                 <b>🌾 Колосся та калина:</b> Калина — символ матері, родини та козацької слави, а колосся уособлює хлібну щедрість.<br><br>
                                 <b>🏵️ Вінок та вишиванка:</b> Український вінок — оберіг дівочої долі, вишиванка — код нації, в якому зашифровані обереги та історія роду.<br><br>
                                 <b>🐦 Лелека:</b> Птах, що приносить щастя, символ любові до рідної землі.<br><br>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ukrainian_embroidery_sample.jpg/800px-Ukrainian_embroidery_sample.jpg" 
+                                <img src="https://starapravda.com.ua/wp-content/uploads/2022/12/vector-illustration-of-ukrainian-folk-seamless-pattern-ornament-ethnic-ornament-border-element-tradi.jpg" 
                                      style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
                                      class="image-smooth"
                                      loading="lazy"
-                                     alt="Українська вишивка">
+                                     alt="Український народний орнамент">
                             </div>
                         `
                     }
@@ -314,7 +381,6 @@
             `;
 
             data.items.forEach((item, index) => {
-                const isSymbolsRich = data.id === 'symbols' && (item.name === 'Державні символи' || item.name === 'Народні символи');
                 contentHtml += `
                     <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 card-hover transition-all duration-300">
                         <button onclick="toggleItem(${index})" class="w-full text-left flex justify-between items-center group">
@@ -415,12 +481,6 @@
                     }
                 }, 80);
             }
-            
-            document.querySelectorAll('.image-smooth').forEach(img => {
-                img.addEventListener('load', () => {
-                    img.classList.add('image-loaded');
-                });
-            });
         }
 
         function toggleItem(index) {
@@ -437,42 +497,6 @@
                 }
             }
         }
-
-        window.initChart = function() {
-            const ctx = document.getElementById('adminChart');
-            if (!ctx) return;
-            if (currentChart) currentChart.destroy();
-            currentChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Області', 'Автономна республіка', 'Міста зі спец. статусом'],
-                    datasets: [{
-                        data: [24, 1, 2],
-                        backgroundColor: [
-                            'rgba(14, 165, 233, 0.7)', 
-                            'rgba(244, 63, 94, 0.7)',  
-                            'rgba(168, 85, 247, 0.7)'  
-                        ],
-                        borderColor: [
-                            'rgba(14, 165, 233, 1)',
-                            'rgba(244, 63, 94, 1)',
-                            'rgba(168, 85, 247, 1)'
-                        ],
-                        borderWidth: 2,
-                        hoverOffset: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { padding: 20, font: { family: "'Inter', sans-serif", size: 13 } } },
-                        tooltip: { callbacks: { label: function(context) { return ' ' + context.label + ': ' + context.raw + ' од.'; } }, padding: 12, backgroundColor: 'rgba(28, 25, 23, 0.9)' }
-                    },
-                    cutout: '65%'
-                }
-            });
-        };
 
         window.onload = initApp;
     </script>
