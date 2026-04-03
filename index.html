@@ -42,8 +42,25 @@
             opacity: 0;
         }
         .accordion-content.open {
-            max-height: 1300px;
+            max-height: 2000px;
             opacity: 1;
+        }
+        .scrollable-symbols {
+            max-height: 520px;
+            overflow-y: auto;
+            padding-right: 8px;
+            scrollbar-width: thin;
+        }
+        .scrollable-symbols::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scrollable-symbols::-webkit-scrollbar-track {
+            background: #e7e5e4;
+            border-radius: 10px;
+        }
+        .scrollable-symbols::-webkit-scrollbar-thumb {
+            background: #a8a29e;
+            border-radius: 10px;
         }
         .card-hover {
             transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -99,13 +116,6 @@
         .btn-pulse:active {
             transform: scale(0.97);
         }
-        .symbol-desc {
-            background: #fefce8;
-            padding: 0.25rem 0.75rem;
-            border-radius: 40px;
-            display: inline-block;
-            font-size: 0.85rem;
-        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col">
@@ -148,7 +158,7 @@
     </footer>
 
     <script>
-        // ОНОВЛЕНИЙ РОЗДІЛ "НАРОДНІ СИМВОЛИ" з розширеними описами та картинками
+        // ОНОВЛЕНИЙ РОЗДІЛ "НАРОДНІ СИМВОЛИ" зі скролом, всі зображення для адміністративного устрою замінено згідно з вимогами
         const siteData = {
             general: {
                 id: 'general',
@@ -162,7 +172,7 @@
                     name: 'Географічне положення',
                     desc: `
                         <div style="line-height:1.8;">
-                        
+
                         <b>📍 Географічне положення:</b><br>
                         Україна розташована у <b>Східній Європі</b> та є однією з найбільших країн Європи за площею. Вона має вигідне стратегічне положення між Європою та Азією.
 
@@ -199,7 +209,7 @@
                             class="image-smooth"
                             alt="Мапа України в Європі"
                         >
-                        
+
                         </div>
                     `
                 },
@@ -207,7 +217,7 @@
                     name: 'Природні ресурси',
                     desc: `
                         <div style="line-height:1.8;">
-                        
+
                         <b>⛏️ Корисні копалини:</b><br>
                         Україна має багаті ресурси:<br>
                         • Кам’яне вугілля (Донбас)<br>
@@ -270,8 +280,8 @@
                                 • Луганська область (центр - м. Луганськ / Сєвєродонецьк)<br>
                                 • Донецька область (центр - м. Донецьк / Краматорськ)<br>
                                 <br>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Ukraine_administrative_regions_%282022%29.svg/800px-Ukraine_administrative_regions_%282022%29.svg.png" 
-                                     style="width:100%; border-radius:12px; margin-top:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
+                                <img src="https://proverka.com.ua/wp-content/uploads/2023/09/maps-ukr.jpg" 
+                                     style="width:100%; border-radius:12px; margin-top:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); object-fit: contain; background: #f9f9f9;"
                                      class="image-smooth"
                                      loading="lazy"
                                      alt="Мапа областей України">
@@ -287,11 +297,11 @@
                                 <b>🏙️ Столиця:</b> м. Сімферополь.<br>
                                 <b>🌊 Географічне положення:</b> Розташована на Кримському півострові, омивається Чорним та Азовським морями. Територія має унікальні природні ландшафти, включаючи Кримські гори та степові зони.<br><br>
                                 <b>🏛️ Особливості статусу:</b> Автономія наділена широкими повноваженнями у сферах курортного господарства, сільського господарства, будівництва та місцевого самоврядування.
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Crimea_%28orthographic_projection%29.png/800px-Crimea_%28orthographic_projection%29.png" 
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/%D0%9A%D1%80%D0%B8%D0%BC-%D0%B0%D0%B4%D0%BC%D1%96%D0%BD%D1%96%D1%81%D1%82%D1%80%D0%B0%D1%86%D1%96%D1%8F.png" 
                                      style="width:100%; border-radius:12px; margin-top:16px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
                                      class="image-smooth"
                                      loading="lazy"
-                                     alt="Мапа Автономної республіки Крим">
+                                     alt="Адміністративна мапа Автономної республіки Крим">
                             </div>
                         `
                     },
@@ -303,11 +313,11 @@
                                 Київ — столиця та найбільше місто України, яке має спеціальний статус, визначений Конституцією України. Місто є окремою адміністративно-територіальною одиницею та не входить до складу жодної області.<br><br>
                                 <b>📌 Статус:</b> Місто зі спеціальним статусом. Функції місцевого самоврядування здійснює Київська міська рада (Київрада) та Київська міська державна адміністрація (КМДА).<br>
                                 <b>🌉 Основні факти:</b> Київ є політичним, економічним, науковим, культурним та історичним центром країни. Населення перевищує 2.8 мільйона мешканців. Місто розташоване на берегах річки Дніпро.<br><br>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Kyiv_Montage_2019.jpg/800px-Kyiv_Montage_2019.jpg" 
+                                <img src="https://portalhistoryua.com/wp-content/uploads/2024/05/majdan-nezalezhnosti-v-kyyevi-glib-albovskyj-unsplash-1024x640.jpg" 
                                      style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
                                      class="image-smooth"
                                      loading="lazy"
-                                     alt="Київ — столиця України">
+                                     alt="Майдан Незалежності, Київ — столиця України">
                             </div>
                         `
                     },
@@ -319,11 +329,11 @@
                                 Севастополь є містом зі спеціальним статусом, яке розташоване в межах Кримського півострова. Відповідно до законодавства України, місто має особливий статус, пов'язаний з історичними, економічними та оборонними функціями.<br><br>
                                 <b>🏛️ Статус:</b> Місто зі спеціальним статусом, яке має власні органи місцевого самоврядування та виконавчої влади — Севастопольську міську раду та Севастопольську міську державну адміністрацію.<br>
                                 <b>🌊 Географія:</b> Розташоване на південно-західному узбережжі Кримського півострова на березі Чорного моря. Севастополь є важливим морським портом та історичним центром.<br><br>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sebastopol_Bucht_2010.JPG/800px-Sebastopol_Bucht_2010.JPG" 
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/1356_%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%B7%D0%B0%D1%82%D0%BE%D0%BF%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%BC_%D0%BA%D0%BE%D1%80%D0%B0%D0%B1%D0%BB%D1%8F%D0%BC.jpg/1280px-1356_%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%B7%D0%B0%D1%82%D0%BE%D0%BF%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%BC_%D0%BA%D0%BE%D1%80%D0%B0%D0%B1%D0%BB%D1%8F%D0%BC.jpg" 
                                      style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
                                      class="image-smooth"
                                      loading="lazy"
-                                     alt="Севастополь">
+                                     alt="Пам'ятник затопленим кораблям, Севастополь">
                             </div>
                         `
                     }
@@ -355,8 +365,8 @@
                     { 
                         name: 'Народні символи', 
                         desc: `
-                            <div style="line-height:1.8;">
-                                <!-- 1. Соняшник -->
+                            <div class="scrollable-symbols" style="line-height:1.8;">
+
                                 <div class="mb-6">
                                     <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🌻</span><h4 class="font-bold text-indigo-800 text-xl">Соняшник</h4></div>
                                     <p><b>Соняшник</b> — один із найвпізнаваніших рослинних символів України. Він уособлює життєву силу, енергію сонця, родючість землі та щедрість. Золоті поля соняшників стали візитівкою українського степу, символом тепла та гостинності. Квітка завжди повертається до сонця, що символізує вірність рідній землі та прагнення до світла.</p>
@@ -367,8 +377,7 @@
                                              alt="Соняшник — український символ">
                                     </div>
                                 </div>
-                                
-                                <!-- 2. Колосся та калина (два зображення) -->
+
                                 <div class="mb-6">
                                     <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🌾</span><h4 class="font-bold text-indigo-800 text-xl">Колосся та калина</h4></div>
                                     <p><b>Колосся пшениці</b> — символ достатку, хлібної щедрості українських чорноземів, невтомної праці хліборобів. <b>Калина</b> — це дерево роду, матері, козацької слави та незламності. Червоні ягоди калини символізують красу, кров, що пролита за волю, та вічний вогонь любові. Разом вони створюють гармонію земного і духовного багатства нації.</p>
@@ -381,8 +390,7 @@
                                              alt="Гілка калини">
                                     </div>
                                 </div>
-                                
-                                <!-- 3. Вінок та вишиванка (два зображення) -->
+
                                 <div class="mb-6">
                                     <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🏵️</span><h4 class="font-bold text-indigo-800 text-xl">Вінок та вишиванка</h4></div>
                                     <p><b>Український віночок</b> — давній оберіг дівочої долі, краси та цнотливості. Кожна квітка у вінку має сакральне значення: барвінок — символ вічного життя, ромашка — чистота, волошка — вірність. <b>Вишиванка</b> — це генетичний код нації, в якому зашифровані символи-обереги: ружі, хрести, трикутники. Вишита сорочка передає історію роду, захищає людину від зла та підкреслює національну гідність.</p>
@@ -395,8 +403,7 @@
                                              alt="Українська вишиванка">
                                     </div>
                                 </div>
-                                
-                                <!-- 4. Лелека (одне зображення) -->
+
                                 <div class="mb-4">
                                     <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🐦</span><h4 class="font-bold text-indigo-800 text-xl">Лелека</h4></div>
                                     <p><b>Лелека</b> — священний птах в українській міфології, символ родинного щастя, вірності рідній землі, весни та відродження. Вважається, що оселя, над якою лелека звив гніздо, буде оберігатися від бід. Лелека уособлює любов до Батьківщини, адже щороку повертається додому, незважаючи на відстані. Він приносить на крилах благодать, нове життя та надію.</p>
@@ -458,7 +465,6 @@
             `;
 
             data.items.forEach((item, index) => {
-                // Унікальний ID для кожного акордеона
                 contentHtml += `
                     <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 card-hover transition-all duration-300">
                         <button onclick="toggleItem(${index})" class="w-full text-left flex justify-between items-center group">
@@ -468,7 +474,7 @@
                             </h3>
                             <span class="text-stone-400 text-sm transition-transform duration-300 group-hover:translate-x-1">▼</span>
                         </button>
-                        <div id="content-${index}" class="accordion-content mt-3 ml-6 text-stone-600 leading-relaxed">
+                        <div id="content-${index}" class="accordion-content mt-3 ml-6 text-stone-600 leading-relaxed" style="overflow-x: visible;">
                             ${item.desc}
                         </div>
                     </div>
@@ -564,7 +570,7 @@
         function toggleItem(index) {
             const contentDiv = document.getElementById(`content-${index}`);
             const arrowSpan = document.querySelector(`.arrow-${index}`);
-            
+
             if (contentDiv && arrowSpan) {
                 if (contentDiv.classList.contains('open')) {
                     contentDiv.classList.remove('open');
