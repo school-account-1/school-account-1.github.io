@@ -40,14 +40,6 @@
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Chosen Palette: Warm neutrals (stone-50 background, stone-800 text) with soft pastel accents (rose, fuchsia, sky blue) reflecting the original structural diagram but modernized for harmony. -->
-    
-    <!-- Application Structure Plan: A dashboard-style layout designed to make hierarchical information digestible. The top section acts as the primary node (Україна). The middle navigation row represents the secondary level of the site map. Clicking these categories dynamically loads the tertiary level content into the detail view below. This structure prevents cognitive overload, allowing users to explore one logical branch at a time while maintaining context of the whole. -->
-    
-    <!-- Visualization & Content Choices: Report Info: Administrative Divisions -> Goal: Organize & Inform -> Viz/Presentation Method: Interactive Doughnut Chart + Detail Cards -> Interaction: Hover tooltips on chart, click to select category -> Justification: The chart visually summarizes the numerical distribution of administrative units, complementing the textual list. -> Library/Method: Chart.js for the chart, HTML/Tailwind for cards. Confirming NO SVG/Mermaid. -->
-    
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
     <header class="bg-white shadow-sm border-b border-stone-200 py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-rose-400 via-fuchsia-400 to-sky-400"></div>
         <div class="max-w-5xl mx-auto text-center">
@@ -61,7 +53,7 @@
     </header>
 
     <main class="flex-grow w-full max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
-        
+
         <section aria-label="Головна навігація розділів" class="w-full">
             <p class="text-center text-sm font-semibold text-stone-500 uppercase tracking-widest mb-6">Оберіть розділ для дослідження</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="nav-container">
@@ -81,7 +73,7 @@
 
     <footer class="bg-stone-100 py-6 text-center border-t border-stone-200">
         <p class="text-stone-500 text-sm">
-            Базується на структурі навчальних матеріалів (Розділ 5). Інтерактивна презентація.
+            Цей сайт створено для навчального проєкту. Інтерактивна демонстрація структури інформації про Україну.
         </p>
     </footer>
 
@@ -132,20 +124,20 @@
 
         function initApp() {
             const navContainer = document.getElementById('nav-container');
-            
+
             Object.values(siteData).forEach(section => {
                 const btn = document.createElement('button');
                 btn.className = `tab-btn flex flex-col items-center justify-center p-6 rounded-xl border-2 cursor-pointer w-full text-center ${section.colorClass}`;
                 btn.onclick = () => renderSection(section.id);
                 btn.id = `btn-${section.id}`;
-                
+
                 btn.innerHTML = `
                     <span class="text-3xl mb-2 drop-shadow-sm">${section.icon}</span>
                     <span class="font-bold text-lg">${section.title}</span>
                 `;
                 navContainer.appendChild(btn);
             });
-            
+
             renderSection('general');
         }
 
@@ -157,14 +149,14 @@
 
             const data = siteData[sectionId];
             const display = document.getElementById('content-display');
-            
+
             let contentHtml = `
                 <div class="fade-in">
                     <h2 class="text-2xl md:text-3xl font-bold mb-4 ${data.headerColorClass} border-b border-stone-100 pb-4 flex items-center gap-3">
                         <span>${data.icon}</span> ${data.title}
                     </h2>
                     <p class="text-stone-600 mb-8 leading-relaxed text-lg">${data.intro}</p>
-                    
+
                     <div class="${data.hasChart ? 'grid grid-cols-1 lg:grid-cols-2 gap-8' : ''}">
                         <div class="flex flex-col gap-4 w-full">
             `;
