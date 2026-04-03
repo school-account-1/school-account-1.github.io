@@ -2,8 +2,8 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Інтерактивна мапа сайту «Україна»</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Інтерактивна мапа сайту «Україна» — Культурна символіка</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -38,11 +38,11 @@
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.3s ease, margin 0.2s ease;
+            transition: max-height 0.5s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.35s ease, margin 0.2s ease;
             opacity: 0;
         }
         .accordion-content.open {
-            max-height: 1200px;
+            max-height: 1300px;
             opacity: 1;
         }
         .card-hover {
@@ -55,10 +55,36 @@
         .image-smooth {
             transition: transform 0.4s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            border-radius: 16px;
         }
         .image-smooth:hover {
             transform: scale(1.01);
             box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.2);
+        }
+        .img-pair {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0 0.5rem;
+        }
+        .img-pair img {
+            flex: 1;
+            min-width: 160px;
+            border-radius: 20px;
+            object-fit: cover;
+            max-height: 220px;
+            width: 100%;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .img-pair img:hover {
+            transform: scale(1.02);
+        }
+        .single-img {
+            margin: 1rem 0 0.5rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.2);
         }
         @keyframes fadeInUp {
             from {
@@ -72,6 +98,13 @@
         }
         .btn-pulse:active {
             transform: scale(0.97);
+        }
+        .symbol-desc {
+            background: #fefce8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -115,6 +148,7 @@
     </footer>
 
     <script>
+        // ОНОВЛЕНИЙ РОЗДІЛ "НАРОДНІ СИМВОЛИ" з розширеними описами та картинками
         const siteData = {
             general: {
                 id: 'general',
@@ -322,15 +356,58 @@
                         name: 'Народні символи', 
                         desc: `
                             <div style="line-height:1.8;">
-                                <b>🌻 Соняшник:</b> Рослина, що стала символом родючості, тепла та енергії української землі.<br><br>
-                                <b>🌾 Колосся та калина:</b> Калина — символ матері, родини та козацької слави, а колосся уособлює хлібну щедрість.<br><br>
-                                <b>🏵️ Вінок та вишиванка:</b> Український вінок — оберіг дівочої долі, вишиванка — код нації, в якому зашифровані обереги та історія роду.<br><br>
-                                <b>🐦 Лелека:</b> Птах, що приносить щастя, символ любові до рідної землі.<br><br>
-                                <img src="https://prekrasa.s3.amazonaws.com/uploads/ckeditor/pictures/845/content_Prekrasa_Studio_1.jpg" 
-                                     style="width:100%; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);"
-                                     class="image-smooth"
-                                     loading="lazy"
-                                     alt="Український народний орнамент">
+                                <!-- 1. Соняшник -->
+                                <div class="mb-6">
+                                    <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🌻</span><h4 class="font-bold text-indigo-800 text-xl">Соняшник</h4></div>
+                                    <p><b>Соняшник</b> — один із найвпізнаваніших рослинних символів України. Він уособлює життєву силу, енергію сонця, родючість землі та щедрість. Золоті поля соняшників стали візитівкою українського степу, символом тепла та гостинності. Квітка завжди повертається до сонця, що символізує вірність рідній землі та прагнення до світла.</p>
+                                    <div class="single-img mt-3">
+                                        <img src="https://vsviti.com.ua/wp-content/uploads/2011/10/girassol-6213.jpg" 
+                                             class="image-smooth w-full object-cover rounded-xl shadow-md" 
+                                             loading="lazy"
+                                             alt="Соняшник — український символ">
+                                    </div>
+                                </div>
+                                
+                                <!-- 2. Колосся та калина (два зображення) -->
+                                <div class="mb-6">
+                                    <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🌾</span><h4 class="font-bold text-indigo-800 text-xl">Колосся та калина</h4></div>
+                                    <p><b>Колосся пшениці</b> — символ достатку, хлібної щедрості українських чорноземів, невтомної праці хліборобів. <b>Калина</b> — це дерево роду, матері, козацької слави та незламності. Червоні ягоди калини символізують красу, кров, що пролита за волю, та вічний вогонь любові. Разом вони створюють гармонію земного і духовного багатства нації.</p>
+                                    <div class="img-pair">
+                                        <img src="https://landlord.ua/wp-content/uploads/2019/06/%D0%BF%D1%88%D0%B5%D0%BD%D0%B8%D1%86%D0%B0-780x470.jpg" 
+                                             class="image-smooth" loading="lazy"
+                                             alt="Пшеничне колосся">
+                                        <img src="https://ntktv.ua/upload/resize_cache/iblock/12e/750_420_2/kaluna-190918-ok.jpg" 
+                                             class="image-smooth" loading="lazy"
+                                             alt="Гілка калини">
+                                    </div>
+                                </div>
+                                
+                                <!-- 3. Вінок та вишиванка (два зображення) -->
+                                <div class="mb-6">
+                                    <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🏵️</span><h4 class="font-bold text-indigo-800 text-xl">Вінок та вишиванка</h4></div>
+                                    <p><b>Український віночок</b> — давній оберіг дівочої долі, краси та цнотливості. Кожна квітка у вінку має сакральне значення: барвінок — символ вічного життя, ромашка — чистота, волошка — вірність. <b>Вишиванка</b> — це генетичний код нації, в якому зашифровані символи-обереги: ружі, хрести, трикутники. Вишита сорочка передає історію роду, захищає людину від зла та підкреслює національну гідність.</p>
+                                    <div class="img-pair">
+                                        <img src="https://media.dyvys.info/2019/10/20181009212057-3968.jpg" 
+                                             class="image-smooth" loading="lazy"
+                                             alt="Український віночок">
+                                        <img src="https://nday.te.ua/wp-content/uploads/2023/07/nd216.jpg" 
+                                             class="image-smooth" loading="lazy"
+                                             alt="Українська вишиванка">
+                                    </div>
+                                </div>
+                                
+                                <!-- 4. Лелека (одне зображення) -->
+                                <div class="mb-4">
+                                    <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🐦</span><h4 class="font-bold text-indigo-800 text-xl">Лелека</h4></div>
+                                    <p><b>Лелека</b> — священний птах в українській міфології, символ родинного щастя, вірності рідній землі, весни та відродження. Вважається, що оселя, над якою лелека звив гніздо, буде оберігатися від бід. Лелека уособлює любов до Батьківщини, адже щороку повертається додому, незважаючи на відстані. Він приносить на крилах благодать, нове життя та надію.</p>
+                                    <div class="single-img mt-3">
+                                        <img src="https://dovidka.biz.ua/wp-content/uploads/2015/01/lelekopodibni-e1638821725662.jpg" 
+                                             class="image-smooth w-full object-cover rounded-xl shadow-md" 
+                                             loading="lazy"
+                                             alt="Лелека — символ України">
+                                    </div>
+                                </div>
+                                <div class="text-xs text-stone-400 mt-4 border-t pt-2">Кожен із цих символів відображає душу українського народу, його історію та незламний дух.</div>
                             </div>
                         `
                     }
@@ -381,6 +458,7 @@
             `;
 
             data.items.forEach((item, index) => {
+                // Унікальний ID для кожного акордеона
                 contentHtml += `
                     <div class="bg-stone-50 border border-stone-200 rounded-xl p-5 card-hover transition-all duration-300">
                         <button onclick="toggleItem(${index})" class="w-full text-left flex justify-between items-center group">
